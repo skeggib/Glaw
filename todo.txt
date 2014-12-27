@@ -1,0 +1,1 @@
+Alpha in Triangle::draw()

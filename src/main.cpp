@@ -7,6 +7,9 @@
 using namespace std;
 
 #include "events/events.hpp"
+#include "triangle.hpp"
+#include "color.hpp"
+#include "coord.hpp"
 
 int main()
 {
@@ -17,6 +20,13 @@ int main()
 	
 	Input input; // Contains all booleans of the SDL events
 		memset(&input, 0, sizeof(input)); // Set all the events to false
+
+	Triangle t1(Coord(50, 25), 
+				Coord(25, 75), 
+				Coord(75, 75), 
+				Color(255, 0, 0), 
+				Color(0, 255, 0), 
+				Color(0, 0, 255));
 
 	/* Initialisation */
 
@@ -45,9 +55,11 @@ int main()
             run = false;
 
         glClear(GL_COLOR_BUFFER_BIT);
+		glBegin(GL_TRIANGLES);
 
-        	// Draw here
+        	t1.draw();
 
+		glEnd();
         glFlush();
     	SDL_GL_SwapBuffers();
     }
