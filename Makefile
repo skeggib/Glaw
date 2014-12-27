@@ -1,9 +1,9 @@
 CC=g++
 CFLAGS=-Wall
-LDFLAGS=
+LDFLAGS=-lSDL -lGL -lGLU
 EXEC=OpenGL-Draw
 TEXEC=Test-OpenGL-Draw
-SRC= $(wildcard src/*.cpp lib/*.cpp)
+SRC= $(wildcard src/*.cpp src/*/*.cpp)
 TEST := $(SRC) $(wildcard test/*.cpp)
 TEST := $(filter-out src/main.cpp, $(TEST))
 OBJ= $(SRC:.c=.o)
@@ -19,7 +19,7 @@ all: $(EXEC)
 $(TEXEC): $(TEST)
 	@$(CC) -o $@ $^ $(LDFLAGS)
 
-OpenGL-Draw: $(SRC)
+$(EXEC): $(SRC)
 	@$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
