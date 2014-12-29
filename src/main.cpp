@@ -7,6 +7,7 @@
 using namespace std;
 
 #include "events/events.hpp"
+#include "operator-overloading/op_coord.hpp"
 #include "triangle.hpp"
 #include "color.hpp"
 #include "coord.hpp"
