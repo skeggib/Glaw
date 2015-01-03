@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 
 #include <SDL/SDL.h>
 #include <GL/gl.h>
@@ -35,6 +36,8 @@ int main()
                 apex3 + (apex1 - apex3) / 2,
                 black);
 
+    Coord left(0, 0), right(0, 0), down(0, 0);
+
 	/* Initialisation */
 
 	SDL_Init(SDL_INIT_VIDEO);
@@ -65,7 +68,23 @@ int main()
 		glBegin(GL_TRIANGLES);
 
             t1.draw();
-        	t2.draw();
+
+            // t2.translate(left);
+            // t2.draw();
+            // t2.translate(-left);
+
+            // t2.translate(right);
+            // t2.draw();
+            // t2.translate(-right);
+
+            t2.translate(left);
+            t2.draw();
+            t2.translate(right - left);
+            t2.draw();
+            t2.translate(-right);
+
+            left += Coord(0.03, -0.03);
+            right += Coord(-0.03, -0.03);
 
 		glEnd();
         glFlush();

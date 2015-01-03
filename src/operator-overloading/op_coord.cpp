@@ -25,11 +25,26 @@ Coord operator+(Coord a, Coord b)
 	return res;
 }
 
+void operator+=(Coord &a, Coord b)
+{
+	a.setX(a.x() + b.x());
+	a.setY(a.y() + b.y());
+}
+
 Coord operator-(Coord a, Coord b)
 {
 	Coord res;
 	res.setX(a.x() - b.x());
 	res.setY(a.y() - b.y());
+
+	return res;
+}
+
+Coord operator-(Coord a)
+{
+	Coord res;
+	res.setX(-a.x());
+	res.setY(-a.y());
 
 	return res;
 }

@@ -2,6 +2,7 @@
 
 #include "coord.hpp"
 #include "color.hpp"
+#include "operator-overloading/op_coord.hpp"
 
 #include <GL/gl.h>
 #include <GL/glu.h>
@@ -36,6 +37,18 @@ public:
 	 *	
 	*/
 	void draw();
+
+	/* \fn translate
+	 *	
+	 *	Translate the triangle
+	 *	
+	 *	\param a : Vector 
+	 *	\param x : x of the vector
+	 *	\param y : y of the vector
+	 *	
+	*/
+	void translate(Coord a);
+	void translate(double x, double y);
 
 private:
 	Coord m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))

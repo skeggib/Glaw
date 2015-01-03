@@ -58,3 +58,23 @@ void Triangle::draw()
 		glVertex2d((m_apex[i].x() / 100) * 2 - 1, ((100 - m_apex[i].y()) / 100) * 2 - 1);
 	}
 }
+
+void Triangle::translate(Coord a)
+{
+	int i;
+	for (i = 0; i < 3; ++i)
+	{
+		m_apex[i] = m_apex[i] + a;
+	}
+}
+
+void Triangle::translate(double x, double y)
+{
+	Coord a(x, y);
+
+	int i;
+	for (i = 0; i < 3; ++i)
+	{
+		m_apex[i] = m_apex[i] + a;
+	}
+}
