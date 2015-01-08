@@ -78,3 +78,23 @@ void Triangle::translate(double x, double y)
 		m_apex[i] = m_apex[i] + a;
 	}
 }
+
+void Triangle::setNext(Triangle *t)
+{
+	m_next = t;
+}
+
+void Triangle::setPrev(Triangle *t)
+{
+	m_prev = t;
+}
+
+Triangle* Triangle::getNext()
+{
+	return m_next;
+}
+
+Triangle* Triangle::getPrev()
+{
+	return m_prev;
+}

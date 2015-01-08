@@ -50,7 +50,42 @@ public:
 	void translate(Coord a);
 	void translate(double x, double y);
 
+	/*! \fn setNext
+	 *	
+	 *	Set the pointer of the next triangle
+	 *	
+	 *	\param t : next triangle
+	 *	
+	*/
+	void setNext(Triangle *t);
+
+	/*! \fn setPrev
+	 *	
+	 *	Set the pointer of the prev triangle
+	 *	
+	 *	\param t : prev triangle
+	 *	
+	*/
+	void setPrev(Triangle *t);
+
+	/*! \fn getNext
+	 *	
+	 *	Get the pointer of the next triangle
+	 *	
+	*/
+	Triangle* getNext();
+
+	/*! \fn getPrev
+	 *	
+	 *	Get the pointer of the prev triangle
+	 *	
+	*/
+	Triangle* getPrev();
+
 private:
 	Coord m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
 	Color m_color[3]; // Colors of each apex
+
+    Triangle *m_prev;
+    Triangle *m_next;
 };
