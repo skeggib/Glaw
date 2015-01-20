@@ -2,7 +2,8 @@
 
 Triangle::Triangle()
 {
-
+	m_prev = NULL;
+	m_next = NULL;
 }
 
 Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color)
@@ -13,6 +14,9 @@ Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color)
 	m_color[0] = color;
 	m_color[1] = color;
 	m_color[2] = color;
+
+	m_prev = NULL;
+	m_next = NULL;
 }
 
 Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3)
@@ -23,6 +27,9 @@ Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color1, Color co
 	m_color[0] = color1;
 	m_color[1] = color2;
 	m_color[2] = color3;
+
+	m_prev = NULL;
+	m_next = NULL;
 }
 
 Triangle::~Triangle()

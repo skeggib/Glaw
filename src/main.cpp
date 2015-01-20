@@ -12,6 +12,7 @@ using namespace std;
 #include "triangle.hpp"
 #include "color.hpp"
 #include "coord.hpp"
+#include "object.hpp"
 
 int main()
 {
@@ -36,7 +37,17 @@ int main()
                 apex3 + (apex1 - apex3) / 2,
                 black);
 
-    Coord left(0, 0), right(0, 0), down(0, 0);
+    Triangle t3(apex1 * 1.5, 
+                apex2 * 1.5, 
+                apex3 * 1.5, 
+                red);
+
+    /* Test Object */
+
+    Object o1;
+    o1.add(&t1);
+    o1.add(&t2);
+    o1.add(&t3);
 
 	/* Initialisation */
 
@@ -67,24 +78,10 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
 		glBegin(GL_TRIANGLES);
 
-            t1.draw();
-
-            // t2.translate(left);
+            // t1.draw();
             // t2.draw();
-            // t2.translate(-left);
 
-            // t2.translate(right);
-            // t2.draw();
-            // t2.translate(-right);
-
-            t2.translate(left);
-            t2.draw();
-            t2.translate(right - left);
-            t2.draw();
-            t2.translate(-right);
-
-            left += Coord(0.03, -0.03);
-            right += Coord(-0.03, -0.03);
+            o1.draw();
 
 		glEnd();
         glFlush();
@@ -95,4 +92,6 @@ int main()
 
     SDL_Quit();
     cout << "Quit SDL" << endl;
+
+    return 0;
 }
