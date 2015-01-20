@@ -12,8 +12,3 @@ Execute
 -------
 
 make run
-
-Test
-----
-
-make test
