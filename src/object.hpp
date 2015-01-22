@@ -17,6 +17,15 @@ public:
 	*/
 	void add(Triangle *t);
 
+	/*! \fn rem
+	 *	
+	 *	Remove a triangle from the list
+	 *	
+	 *	\param t : triangle's pointer
+	 *	
+	*/
+	void rem(Triangle *t);
+
 	void draw();
 
 private:

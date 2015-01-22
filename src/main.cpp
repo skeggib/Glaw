@@ -26,28 +26,52 @@ int main()
 
     Coord apex1(50, 25), apex2(25, 75), apex3(75, 75);
     Color red(255, 0, 0), green(0, 255, 0), blue(0, 0, 255), white(255, 255, 255), black(0, 0, 0);
+    Color cornerColor(30, 30, 30);
+    Color tColor(120, 120, 120);
 
-	Triangle t1(apex1, 
-				apex2, 
-				apex3, 
-				white);
+	Triangle t1(    apex1, 
+				    apex2, 
+				    apex3, 
+				    tColor);
 
-    Triangle t2(apex1 + (apex2 - apex1) / 2,
-                apex2 + (apex3 - apex2) / 2,
-                apex3 + (apex1 - apex3) / 2,
-                black);
+    Triangle t2(    apex1 + (apex2 - apex1) / 2,
+                    apex2 + (apex3 - apex2) / 2,
+                    apex3 + (apex1 - apex3) / 2,
+                    black);
 
-    Triangle t3(apex1 * 1.5, 
-                apex2 * 1.5, 
-                apex3 * 1.5, 
-                red);
+    Triangle corner1(   Coord(0, 0), 
+                        Coord(20, 0), 
+                        Coord(0, 20), 
+                        cornerColor);
+
+    Triangle corner2(   Coord(0, 100), 
+                        Coord(20, 100), 
+                        Coord(0, 80), 
+                        cornerColor);
+
+    Triangle corner3(   Coord(100, 0), 
+                        Coord(100, 20), 
+                        Coord(80, 0), 
+                        cornerColor);
+
+    Triangle corner4(   Coord(100, 100), 
+                        Coord(100, 80), 
+                        Coord(80, 100), 
+                        Color(255, 0, 0),
+                        Color(0, 255, 0),
+                        Color(0, 0, 255));
 
     /* Test Object */
 
     Object o1;
     o1.add(&t1);
     o1.add(&t2);
-    o1.add(&t3);
+    o1.add(&corner1);
+    o1.add(&corner2);
+    o1.add(&corner3);
+    o1.add(&corner4);
+
+    o1.rem(&corner2);
 
 	/* Initialisation */
 
