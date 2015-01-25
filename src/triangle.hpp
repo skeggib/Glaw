@@ -10,9 +10,9 @@
 class Triangle
 {
 public:
-	Triangle();
-	Triangle(Coord apex1, Coord apex2, Coord apex3, Color color);
-	Triangle(Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3);
+	Triangle(bool dynAlloc);
+	Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color);
+	Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3);
 	~Triangle();
 
 	/* \fn set
@@ -82,10 +82,22 @@ public:
 	*/
 	Triangle* getPrev();
 
+	/*! \fn dynAlloc
+	 *	
+	 *	Returns true if the Triangle was allocated dynamicly.
+	 *	
+	*/
+	bool dynAlloc()
+	{
+		return m_dynAlloc;
+	}
+
 private:
 	Coord m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
 	Color m_color[3]; // Colors of each apex
 
     Triangle *m_prev;
     Triangle *m_next;
+
+    bool m_dynAlloc;
 };

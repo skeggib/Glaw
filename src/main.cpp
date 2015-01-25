@@ -29,37 +29,49 @@ int main()
     Color cornerColor(30, 30, 30);
     Color tColor(120, 120, 120);
 
-	Triangle t1(    apex1, 
-				    apex2, 
-				    apex3, 
-				    tColor);
+	Triangle t1(
+        false,
+        apex1, 
+	    apex2, 
+	    apex3, 
+	    tColor);
 
-    Triangle t2(    apex1 + (apex2 - apex1) / 2,
-                    apex2 + (apex3 - apex2) / 2,
-                    apex3 + (apex1 - apex3) / 2,
-                    black);
+    Triangle t2(
+        false,
+        apex1 + (apex2 - apex1) / 2,
+        apex2 + (apex3 - apex2) / 2,
+        apex3 + (apex1 - apex3) / 2,
+        black);
 
-    Triangle corner1(   Coord(0, 0), 
-                        Coord(20, 0), 
-                        Coord(0, 20), 
-                        cornerColor);
+    Triangle corner1(
+        false,
+        Coord(0, 0), 
+        Coord(20, 0), 
+        Coord(0, 20), 
+        cornerColor);
 
-    Triangle corner2(   Coord(0, 100), 
-                        Coord(20, 100), 
-                        Coord(0, 80), 
-                        cornerColor);
+    Triangle corner2(
+        false,
+        Coord(0, 100), 
+        Coord(20, 100), 
+        Coord(0, 80), 
+        cornerColor);
 
-    Triangle corner3(   Coord(100, 0), 
-                        Coord(100, 20), 
-                        Coord(80, 0), 
-                        cornerColor);
+    Triangle corner3(
+        false,
+        Coord(100, 0), 
+        Coord(100, 20), 
+        Coord(80, 0), 
+        cornerColor);
 
-    Triangle corner4(   Coord(100, 100), 
-                        Coord(100, 80), 
-                        Coord(80, 100), 
-                        Color(255, 0, 0),
-                        Color(0, 255, 0),
-                        Color(0, 0, 255));
+    Triangle corner4(
+        false,
+        Coord(100, 100), 
+        Coord(100, 80), 
+        Coord(80, 100), 
+        Color(255, 0, 0),
+        Color(0, 255, 0),
+        Color(0, 0, 255));
 
     /* Test Object */
 

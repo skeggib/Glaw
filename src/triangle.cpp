@@ -1,13 +1,17 @@
 #include "triangle.hpp"
 
-Triangle::Triangle()
+Triangle::Triangle(bool dynAlloc)
 {
+	m_dynAlloc = dynAlloc;
+
 	m_prev = NULL;
 	m_next = NULL;
 }
 
-Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color)
+Triangle::Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color)
 {
+	m_dynAlloc = dynAlloc;
+
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
 	m_apex[2] = apex3;
@@ -19,8 +23,10 @@ Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color)
 	m_next = NULL;
 }
 
-Triangle::Triangle(Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3)
+Triangle::Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3)
 {
+	m_dynAlloc = dynAlloc;
+
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
 	m_apex[2] = apex3;
