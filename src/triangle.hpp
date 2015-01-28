@@ -8,6 +8,9 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+#include <iostream>
+using namespace std;
+
 class Triangle
 {
 public:
@@ -48,10 +51,14 @@ public:
 
 	/* \fn draw
 	 *	
-	 *	Draw the triangle
+	 * Draw the triangle
+	 * 
+	 * \param pos : position od the drawing
+	 * \param size : size of the drawing
 	 *	
 	*/
 	void draw();
+	void draw(Vector2 pos, Vector2 size);
 
 	/* \fn translate
 	 *	

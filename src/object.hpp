@@ -6,6 +6,7 @@ class Object
 {
 public:
 	Object();
+	Object(Vector2 pos, Vector2 size);
 	~Object();
 
 	/*! \fn add
@@ -38,6 +39,9 @@ public:
 	void draw();
 
 private:
+	Vector2 m_pos;
+	Vector2 m_size;
+
 	Triangle *m_first;
 	Triangle *m_last;
 };

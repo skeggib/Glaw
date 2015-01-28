@@ -82,6 +82,19 @@ void Triangle::draw()
 	}
 }
 
+void Triangle::draw(Vector2 pos, Vector2 size)
+{
+	Vector2 newPos;
+
+	for (int i = 0; i < 3; ++i)
+	{
+		newPos = pos + size * (m_apex[i] / 100);
+
+		glColor3ub(m_color[i].r(), m_color[i].g(), m_color[i].b());
+		glVertex2d((newPos.x / 100) * 2 - 1, ((100 - newPos.y) / 100) * 2 - 1);
+	}
+}
+
 void Triangle::translate(Vector2 a)
 {
 	int i;

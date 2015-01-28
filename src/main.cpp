@@ -70,38 +70,29 @@ int main()
 
     /* Test Object */
 
-    Object o1;
-    o1.create(Triangle(
-        apex1, 
-        apex2, 
-        apex3, 
-        tColor));
-    
-    o1.create(Triangle(
-        apex1 + Vector2(10, 10) * 1 , 
-        apex2 + Vector2(10, 10) * 1 , 
-        apex3 + Vector2(10, 10) * 1 , 
-        red));
-    
-    o1.create(Triangle(
-        apex1 + Vector2(10, 10) * 2 , 
-        apex2 + Vector2(10, 10) * 2 , 
-        apex3 + Vector2(10, 10) * 2 , 
-        blue));
-    
-    o1.create(Triangle(
-        apex1 + Vector2(10, 10) * 3 , 
-        apex2 + Vector2(10, 10) * 3 , 
-        apex3 + Vector2(10, 10) * 3 , 
-        green));
-    
-    o1.create(Triangle(
-        apex1 + Vector2(10, 10) * 4 , 
-        apex2 + Vector2(10, 10) * 4 , 
-        apex3 + Vector2(10, 10) * 4 , 
-        white));
+    Object o1(Vector2(0, 0), Vector2(50, 50));
 
-    o1.rem(&corner2);
+    o1.add(&t1);
+    o1.add(&t2);
+
+    Object o2(Vector2(50, 0), Vector2(50, 50));
+
+    o2.add(&t1);
+    o2.add(&t2);
+
+    Object fond;
+
+    fond.create(Triangle(
+        Vector2(0, 0),
+        Vector2(50, 0),
+        Vector2(0, 50),
+        red));
+
+    fond.create(Triangle(
+        Vector2(50, 0),
+        Vector2(100, 0),
+        Vector2(100, 50),
+        red));
 
 	/* Initialisation */
 
@@ -135,7 +126,9 @@ int main()
             // t1.draw();
             // t2.draw();
 
+            fond.draw();
             o1.draw();
+            o2.draw();
 
 		glEnd();
         glFlush();
