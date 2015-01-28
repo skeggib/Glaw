@@ -1,16 +1,16 @@
 #include "triangle.hpp"
 
-Triangle::Triangle(bool dynAlloc)
+Triangle::Triangle()
 {
-	m_dynAlloc = dynAlloc;
+	m_dynAlloc = false;
 
 	m_prev = NULL;
 	m_next = NULL;
 }
 
-Triangle::Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color)
+Triangle::Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color)
 {
-	m_dynAlloc = dynAlloc;
+	m_dynAlloc = false;
 
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
@@ -23,9 +23,9 @@ Triangle::Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color c
 	m_next = NULL;
 }
 
-Triangle::Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3)
+Triangle::Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3)
 {
-	m_dynAlloc = dynAlloc;
+	m_dynAlloc = false;
 
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
@@ -43,7 +43,7 @@ Triangle::~Triangle()
 
 }
 
-void Triangle::set(Coord apex1, Coord apex2, Coord apex3, Color color)
+void Triangle::set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color)
 {
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
@@ -53,7 +53,7 @@ void Triangle::set(Coord apex1, Coord apex2, Coord apex3, Color color)
 	m_color[2] = color;
 }
 
-void Triangle::set(Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3)
+void Triangle::set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3)
 {
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
@@ -63,16 +63,26 @@ void Triangle::set(Coord apex1, Coord apex2, Coord apex3, Color color1, Color co
 	m_color[2] = color3;
 }
 
+void Triangle::dynAlloc()
+{
+	m_dynAlloc = true;
+}
+
+bool Triangle::isDynAlloc()
+{
+	return m_dynAlloc;
+}
+
 void Triangle::draw()
 {
 	for (int i = 0; i < 3; ++i)
 	{
 		glColor3ub(m_color[i].r(), m_color[i].g(), m_color[i].b());
-		glVertex2d((m_apex[i].x() / 100) * 2 - 1, ((100 - m_apex[i].y()) / 100) * 2 - 1);
+		glVertex2d((m_apex[i].x / 100) * 2 - 1, ((100 - m_apex[i].y) / 100) * 2 - 1);
 	}
 }
 
-void Triangle::translate(Coord a)
+void Triangle::translate(Vector2 a)
 {
 	int i;
 	for (i = 0; i < 3; ++i)
@@ -83,7 +93,7 @@ void Triangle::translate(Coord a)
 
 void Triangle::translate(double x, double y)
 {
-	Coord a(x, y);
+	Vector2 a(x, y);
 
 	int i;
 	for (i = 0; i < 3; ++i)

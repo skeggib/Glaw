@@ -17,6 +17,15 @@ public:
 	*/
 	void add(Triangle *t);
 
+	/* \fn create
+	 *	
+	 * Dynamicly allocate a triangle, add it to the list and return its pointer
+	 *	
+	 * \param t : triangle to copy 
+	 *	
+	*/
+	Triangle* create(Triangle t);
+
 	/*! \fn rem
 	 *	
 	 *	Remove a triangle from the list

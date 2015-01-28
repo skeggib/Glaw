@@ -12,6 +12,7 @@ using namespace std;
 #include "triangle.hpp"
 #include "color.hpp"
 #include "coord.hpp"
+#include "vector.hpp"
 #include "object.hpp"
 
 int main()
@@ -24,51 +25,45 @@ int main()
 	Input input; // Contains all booleans of the SDL events
 		memset(&input, 0, sizeof(input)); // Set all the events to false
 
-    Coord apex1(50, 25), apex2(25, 75), apex3(75, 75);
+    Vector2 apex1(50, 25), apex2(25, 75), apex3(75, 75);
     Color red(255, 0, 0), green(0, 255, 0), blue(0, 0, 255), white(255, 255, 255), black(0, 0, 0);
     Color cornerColor(30, 30, 30);
     Color tColor(120, 120, 120);
 
 	Triangle t1(
-        false,
         apex1, 
 	    apex2, 
 	    apex3, 
 	    tColor);
 
     Triangle t2(
-        false,
         apex1 + (apex2 - apex1) / 2,
         apex2 + (apex3 - apex2) / 2,
         apex3 + (apex1 - apex3) / 2,
         black);
 
     Triangle corner1(
-        false,
-        Coord(0, 0), 
-        Coord(20, 0), 
-        Coord(0, 20), 
+        Vector2(0, 0), 
+        Vector2(20, 0), 
+        Vector2(0, 20), 
         cornerColor);
 
     Triangle corner2(
-        false,
-        Coord(0, 100), 
-        Coord(20, 100), 
-        Coord(0, 80), 
+        Vector2(0, 100), 
+        Vector2(20, 100), 
+        Vector2(0, 80), 
         cornerColor);
 
     Triangle corner3(
-        false,
-        Coord(100, 0), 
-        Coord(100, 20), 
-        Coord(80, 0), 
+        Vector2(100, 0), 
+        Vector2(100, 20), 
+        Vector2(80, 0), 
         cornerColor);
 
     Triangle corner4(
-        false,
-        Coord(100, 100), 
-        Coord(100, 80), 
-        Coord(80, 100), 
+        Vector2(100, 100), 
+        Vector2(100, 80), 
+        Vector2(80, 100), 
         Color(255, 0, 0),
         Color(0, 255, 0),
         Color(0, 0, 255));
@@ -76,12 +71,35 @@ int main()
     /* Test Object */
 
     Object o1;
-    o1.add(&t1);
-    o1.add(&t2);
-    o1.add(&corner1);
-    o1.add(&corner2);
-    o1.add(&corner3);
-    o1.add(&corner4);
+    o1.create(Triangle(
+        apex1, 
+        apex2, 
+        apex3, 
+        tColor));
+    
+    o1.create(Triangle(
+        apex1 + Vector2(10, 10) * 1 , 
+        apex2 + Vector2(10, 10) * 1 , 
+        apex3 + Vector2(10, 10) * 1 , 
+        red));
+    
+    o1.create(Triangle(
+        apex1 + Vector2(10, 10) * 2 , 
+        apex2 + Vector2(10, 10) * 2 , 
+        apex3 + Vector2(10, 10) * 2 , 
+        blue));
+    
+    o1.create(Triangle(
+        apex1 + Vector2(10, 10) * 3 , 
+        apex2 + Vector2(10, 10) * 3 , 
+        apex3 + Vector2(10, 10) * 3 , 
+        green));
+    
+    o1.create(Triangle(
+        apex1 + Vector2(10, 10) * 4 , 
+        apex2 + Vector2(10, 10) * 4 , 
+        apex3 + Vector2(10, 10) * 4 , 
+        white));
 
     o1.rem(&corner2);
 

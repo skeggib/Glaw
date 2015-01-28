@@ -1,6 +1,7 @@
 #pragma once
 
 #include "coord.hpp"
+#include "vector.hpp"
 #include "color.hpp"
 #include "operator-overloading/op_coord.hpp"
 
@@ -10,9 +11,9 @@
 class Triangle
 {
 public:
-	Triangle(bool dynAlloc);
-	Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color);
-	Triangle(bool dynAlloc, Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3);
+	Triangle();
+	Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color);
+	Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3);
 	~Triangle();
 
 	/* \fn set
@@ -28,8 +29,22 @@ public:
 	 *	\param color3 : Color of the third apex
 	 *	
 	*/
-	void set(Coord apex1, Coord apex2, Coord apex3, Color color);
-	void set(Coord apex1, Coord apex2, Coord apex3, Color color1, Color color2, Color color3);
+	void set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color);
+	void set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3);
+
+	/* \fn dynAlloc
+	 *	
+	 * Set m_dynAlloc to true
+	 *	
+	*/
+	void dynAlloc();
+
+	/*! \fn dynAlloc
+	 *	
+	 *	Returns true if the Triangle was allocated dynamicly.
+	 *	
+	*/
+	bool isDynAlloc();
 
 	/* \fn draw
 	 *	
@@ -47,7 +62,7 @@ public:
 	 *	\param y : y of the vector
 	 *	
 	*/
-	void translate(Coord a);
+	void translate(Vector2 a);
 	void translate(double x, double y);
 
 	/*! \fn setNext
@@ -82,18 +97,8 @@ public:
 	*/
 	Triangle* getPrev();
 
-	/*! \fn dynAlloc
-	 *	
-	 *	Returns true if the Triangle was allocated dynamicly.
-	 *	
-	*/
-	bool dynAlloc()
-	{
-		return m_dynAlloc;
-	}
-
 private:
-	Coord m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
+	Vector2 m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
 	Color m_color[3]; // Colors of each apex
 
     Triangle *m_prev;

@@ -11,7 +11,20 @@ Object::Object()
 
 Object::~Object()
 {
+	Triangle *cur = m_first;
+	Triangle *last;
 
+	while (cur != NULL)
+	{
+		last = cur;
+		if (last->isDynAlloc())
+		{
+			delete last;
+			cout << "Deleted " << last << endl;
+		}
+
+		cur = cur->getNext();
+	}
 }
 
 void Object::add(Triangle *t)
@@ -34,6 +47,16 @@ void Object::add(Triangle *t)
 
 		m_last = cur;
 	}
+}
+
+Triangle* Object::create(Triangle t)
+{
+	Triangle *temp = new Triangle();
+	*temp = t;
+	temp->dynAlloc();
+	this->add(temp);
+
+	return temp;
 }
 
 void Object::rem(Triangle *t)

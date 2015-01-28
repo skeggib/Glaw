@@ -1,1 +1,2 @@
-Alpha in Triangle::draw()
+Moved Coord to struct Vector
+Added Object::create()
