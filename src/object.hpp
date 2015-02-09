@@ -36,7 +36,22 @@ public:
 	*/
 	void rem(Triangle *t);
 
+	/*! \fn draw
+	 *	
+	 *	Draw the object
+	 *	
+	*/
 	void draw();
+
+	/*! \fn rotate
+	 *	
+	 *	Rotate all triangles in the object
+	 *	
+	 *	\param axis : Axis of rotation 
+	 *	\param angle : Angle of rotation
+	 *	
+	*/
+	void rotate(Vector axis, float angle);
 
 private:
 	Vector m_pos;

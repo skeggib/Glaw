@@ -125,13 +125,17 @@ void Triangle::rotate(Vector axis, float angle)
 	for (i = 0; i < 3; ++i)
 	{
 		dist[i] = sqrt( pow((axis.x - m_apex[i].x), 2) + pow((axis.y - m_apex[i].y), 2) );
-		origAngle[i] = acos( (m_apex[i].x - axis.x) / dist[i] ) / (M_PI / 180);
-		if (m_apex[i].y > axis.y)
+		
+		if (dist[i] != 0)
+		{
+			origAngle[i] = acos( (m_apex[i].x - axis.x) / dist[i] ) / (M_PI / 180);
+			if (m_apex[i].y > axis.y)
+				origAngle[i] = -origAngle[i];
 			origAngle[i] = -origAngle[i];
-		origAngle[i] = -origAngle[i];
 
-		m_apex[i].x = cos((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.x;
-		m_apex[i].y = sin((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.y;
+			m_apex[i].x = cos((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.x;
+			m_apex[i].y = sin((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.y;
+		}
 	}
 }
 

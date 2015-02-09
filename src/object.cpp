@@ -109,3 +109,17 @@ void Object::draw()
 		}
 	}
 }
+
+void Object::rotate(Vector axis, float angle)
+{
+	if (m_first != NULL && m_last != NULL)
+	{
+		Triangle *cur = m_first;
+
+		while (cur != NULL)
+		{
+			cur->rotate(axis, angle);
+			cur = cur->getNext();
+		}
+	}
+}

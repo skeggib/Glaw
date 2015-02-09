@@ -17,16 +17,30 @@ int test()
 
 	/* Triangle */
 
-	Triangle tri(
-		Vector(50, 0),
-		Vector(8, 76),
-		Vector(92, 76),
+    Triangle tri(
+        Vector(50, 0),
+        Vector(8, 76),
+        Vector(92, 76),
+        Color(255, 0, 0, 255),
+        Color(0, 255, 0, 255),
+        Color(0, 0, 255, 255)
+    );
+
+	Triangle tri2(
+		Vector(50 / 2, 0),
+		Vector(8 / 2, 76 / 2),
+		Vector(92 / 2, 76 / 2),
 		Color(255, 0, 0, 255),
 		Color(0, 255, 0, 255),
 		Color(0, 0, 255, 255)
 	);
 
-	tri.rotate(Vector(50, 50), 180);
+	/* Object */
+
+    Object obj(Vector(0, 50), Vector(100, 100));
+
+    obj.add(&tri);
+    obj.add(&tri2);
 
 	/* Initialisation */
 
@@ -57,8 +71,8 @@ int test()
         glClear(GL_COLOR_BUFFER_BIT);
 		glBegin(GL_TRIANGLES);
 
-        	tri.draw();
-        	tri.rotate(Vector(50, 50), 0.5);
+            obj.draw();
+            obj.rotate(Vector(50, 0), 0.5);
 
 		glEnd();
         glFlush();
