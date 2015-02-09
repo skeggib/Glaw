@@ -15,8 +15,8 @@ class Triangle
 {
 public:
 	Triangle();
-	Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color);
-	Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3);
+	Triangle(Vector apex1, Vector apex2, Vector apex3, Color color);
+	Triangle(Vector apex1, Vector apex2, Vector apex3, Color color1, Color color2, Color color3);
 	~Triangle();
 
 	/* \fn set
@@ -32,8 +32,8 @@ public:
 	 *	\param color3 : Color of the third apex
 	 *	
 	*/
-	void set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color);
-	void set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3);
+	void set(Vector apex1, Vector apex2, Vector apex3, Color color);
+	void set(Vector apex1, Vector apex2, Vector apex3, Color color1, Color color2, Color color3);
 
 	/* \fn dynAlloc
 	 *	
@@ -58,7 +58,7 @@ public:
 	 *	
 	*/
 	void draw();
-	void draw(Vector2 pos, Vector2 size);
+	void draw(Vector pos, Vector size);
 
 	/* \fn translate
 	 *	
@@ -69,7 +69,7 @@ public:
 	 *	\param y : y of the vector
 	 *	
 	*/
-	void translate(Vector2 a);
+	void translate(Vector a);
 	void translate(double x, double y);
 
 	/*! \fn setNext
@@ -105,7 +105,7 @@ public:
 	Triangle* getPrev();
 
 private:
-	Vector2 m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
+	Vector m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
 	Color m_color[3]; // Colors of each apex
 
     Triangle *m_prev;

@@ -8,7 +8,7 @@ Triangle::Triangle()
 	m_next = NULL;
 }
 
-Triangle::Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color)
+Triangle::Triangle(Vector apex1, Vector apex2, Vector apex3, Color color)
 {
 	m_dynAlloc = false;
 
@@ -23,7 +23,7 @@ Triangle::Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color)
 	m_next = NULL;
 }
 
-Triangle::Triangle(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3)
+Triangle::Triangle(Vector apex1, Vector apex2, Vector apex3, Color color1, Color color2, Color color3)
 {
 	m_dynAlloc = false;
 
@@ -43,7 +43,7 @@ Triangle::~Triangle()
 
 }
 
-void Triangle::set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color)
+void Triangle::set(Vector apex1, Vector apex2, Vector apex3, Color color)
 {
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
@@ -53,7 +53,7 @@ void Triangle::set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color)
 	m_color[2] = color;
 }
 
-void Triangle::set(Vector2 apex1, Vector2 apex2, Vector2 apex3, Color color1, Color color2, Color color3)
+void Triangle::set(Vector apex1, Vector apex2, Vector apex3, Color color1, Color color2, Color color3)
 {
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
@@ -82,9 +82,9 @@ void Triangle::draw()
 	}
 }
 
-void Triangle::draw(Vector2 pos, Vector2 size)
+void Triangle::draw(Vector pos, Vector size)
 {
-	Vector2 newPos;
+	Vector newPos;
 
 	for (int i = 0; i < 3; ++i)
 	{
@@ -95,7 +95,7 @@ void Triangle::draw(Vector2 pos, Vector2 size)
 	}
 }
 
-void Triangle::translate(Vector2 a)
+void Triangle::translate(Vector a)
 {
 	int i;
 	for (i = 0; i < 3; ++i)
@@ -106,7 +106,7 @@ void Triangle::translate(Vector2 a)
 
 void Triangle::translate(double x, double y)
 {
-	Vector2 a(x, y);
+	Vector a(x, y);
 
 	int i;
 	for (i = 0; i < 3; ++i)

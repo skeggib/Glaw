@@ -15,6 +15,8 @@ using namespace std;
 #include "vector.hpp"
 #include "object.hpp"
 
+#define MULTISAMPLING true
+
 int main()
 {
 	/* Variables */
@@ -25,7 +27,7 @@ int main()
 	Input input; // Contains all booleans of the SDL events
 		memset(&input, 0, sizeof(input)); // Set all the events to false
 
-    Vector2 apex1(50, 25), apex2(25, 75), apex3(75, 75);
+    Vector apex1(50, 25), apex2(25, 75), apex3(75, 75);
     Color red(255, 0, 0), green(0, 255, 0), blue(0, 0, 255), white(255, 255, 255), black(0, 0, 0);
     Color cornerColor(30, 30, 30);
     Color tColor(120, 120, 120);
@@ -43,39 +45,39 @@ int main()
         black);
 
     Triangle corner1(
-        Vector2(0, 0), 
-        Vector2(20, 0), 
-        Vector2(0, 20), 
+        Vector(0, 0), 
+        Vector(20, 0), 
+        Vector(0, 20), 
         cornerColor);
 
     Triangle corner2(
-        Vector2(0, 100), 
-        Vector2(20, 100), 
-        Vector2(0, 80), 
+        Vector(0, 100), 
+        Vector(20, 100), 
+        Vector(0, 80), 
         cornerColor);
 
     Triangle corner3(
-        Vector2(100, 0), 
-        Vector2(100, 20), 
-        Vector2(80, 0), 
+        Vector(100, 0), 
+        Vector(100, 20), 
+        Vector(80, 0), 
         cornerColor);
 
     Triangle corner4(
-        Vector2(100, 100), 
-        Vector2(100, 80), 
-        Vector2(80, 100), 
+        Vector(100, 100), 
+        Vector(100, 80), 
+        Vector(80, 100), 
         Color(255, 0, 0),
         Color(0, 255, 0),
         Color(0, 0, 255));
 
     /* Test Object */
 
-    Object o1(Vector2(0, 0), Vector2(50, 50));
+    Object o1(Vector(0, 0), Vector(50, 50));
 
     o1.add(&t1);
     o1.add(&t2);
 
-    Object o2(Vector2(50, 0), Vector2(50, 50));
+    Object o2(Vector(50, 0), Vector(50, 50));
 
     o2.add(&t1);
     o2.add(&t2);
@@ -83,15 +85,15 @@ int main()
     Object fond;
 
     fond.create(Triangle(
-        Vector2(0, 0),
-        Vector2(50, 0),
-        Vector2(0, 50),
+        Vector(0, 0),
+        Vector(50, 0),
+        Vector(0, 50),
         red));
 
     fond.create(Triangle(
-        Vector2(50, 0),
-        Vector2(100, 0),
-        Vector2(100, 50),
+        Vector(50, 0),
+        Vector(100, 0),
+        Vector(100, 50),
         red));
 
 	/* Initialisation */
@@ -100,13 +102,17 @@ int main()
     cout << "Init SDL" << endl;
 
     // Enabling OpenGL multisampling
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
-    glEnable(GL_MULTISAMPLE);
-    glHint(GL_LINE_SMOOTH_HINT, GL_NICEST );
-    glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST );
-    glEnable(GL_LINE_SMOOTH);
-    glEnable(GL_POLYGON_SMOOTH);
+    if (MULTISAMPLING)
+    {
+        SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+        SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 8);
+        glEnable(GL_MULTISAMPLE);
+        glHint(GL_LINE_SMOOTH_HINT, GL_NICEST );
+        glHint(GL_POLYGON_SMOOTH_HINT, GL_NICEST );
+        glEnable(GL_LINE_SMOOTH);
+        glEnable(GL_POLYGON_SMOOTH);
+    }
+    
     cout << "Init OpenGL Multisampling" << endl;
 
     window = SDL_SetVideoMode(800, 600, 32, SDL_OPENGL);

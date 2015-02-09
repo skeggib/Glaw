@@ -8,11 +8,11 @@ Object::Object()
 	m_first = NULL;
 	m_last = NULL;
 
-	m_pos = Vector2(0, 0);
-	m_size = Vector2(100, 100);
+	m_pos = Vector(0, 0);
+	m_size = Vector(100, 100);
 }
 
-Object::Object(Vector2 pos, Vector2 size)
+Object::Object(Vector pos, Vector size)
 {
 	m_first = NULL;
 	m_last = NULL;
