@@ -1,4 +1,4 @@
-OpenGL-Draw
+Glaw
 ===========
 
 An easy way to draw using OpenGL and SDL.
