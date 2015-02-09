@@ -77,7 +77,7 @@ void Triangle::draw()
 {
 	for (int i = 0; i < 3; ++i)
 	{
-		glColor3ub(m_color[i].r(), m_color[i].g(), m_color[i].b());
+		glColor3ub(m_color[i].r, m_color[i].g, m_color[i].b);
 		glVertex2d((m_apex[i].x / 100) * 2 - 1, ((100 - m_apex[i].y) / 100) * 2 - 1);
 	}
 }
@@ -90,7 +90,7 @@ void Triangle::draw(Vector pos, Vector size)
 	{
 		newPos = pos + size * (m_apex[i] / 100);
 
-		glColor3ub(m_color[i].r(), m_color[i].g(), m_color[i].b());
+		glColor3ub(m_color[i].r, m_color[i].g, m_color[i].b);
 		glVertex2d((newPos.x / 100) * 2 - 1, ((100 - newPos.y) / 100) * 2 - 1);
 	}
 }

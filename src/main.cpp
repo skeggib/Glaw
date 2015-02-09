@@ -28,9 +28,13 @@ int main()
 		memset(&input, 0, sizeof(input)); // Set all the events to false
 
     Vector apex1(50, 25), apex2(25, 75), apex3(75, 75);
-    Color red(255, 0, 0), green(0, 255, 0), blue(0, 0, 255), white(255, 255, 255), black(0, 0, 0);
-    Color cornerColor(30, 30, 30);
-    Color tColor(120, 120, 120);
+    Color   red(255, 0, 0, 255), 
+            green(0, 255, 0, 255), 
+            blue(0, 0, 255, 255), 
+            white(255, 255, 255, 255), 
+            black(0, 0, 0, 255), 
+            cornerColor(30, 30, 30, 255),
+            tColor(120, 120, 120, 255);
 
 	Triangle t1(
         apex1, 
@@ -66,9 +70,9 @@ int main()
         Vector(100, 100), 
         Vector(100, 80), 
         Vector(80, 100), 
-        Color(255, 0, 0),
-        Color(0, 255, 0),
-        Color(0, 0, 255));
+        Color(255, 0, 0, 255),
+        Color(0, 255, 0, 255),
+        Color(0, 0, 255, 255));
 
     /* Test Object */
 
