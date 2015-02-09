@@ -115,6 +115,26 @@ void Triangle::translate(double x, double y)
 	}
 }
 
+void Triangle::rotate(Vector axis, float angle)
+{
+	int i;
+
+	float dist[3];
+	float origAngle[3];
+
+	for (i = 0; i < 3; ++i)
+	{
+		dist[i] = sqrt( pow((axis.x - m_apex[i].x), 2) + pow((axis.y - m_apex[i].y), 2) );
+		origAngle[i] = acos( (m_apex[i].x - axis.x) / dist[i] ) / (M_PI / 180);
+		if (m_apex[i].y > axis.y)
+			origAngle[i] = -origAngle[i];
+		origAngle[i] = -origAngle[i];
+
+		m_apex[i].x = cos((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.x;
+		m_apex[i].y = sin((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.y;
+	}
+}
+
 void Triangle::setNext(Triangle *t)
 {
 	m_next = t;

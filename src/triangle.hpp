@@ -9,6 +9,7 @@
 #include <GL/glu.h>
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
 class Triangle
@@ -71,6 +72,16 @@ public:
 	*/
 	void translate(Vector a);
 	void translate(double x, double y);
+
+	/* \fn rotate
+	 *	
+	 *	Rotate the triangle
+	 *	
+	 *	\param axis : Axis of rotation 
+	 *	\param angle : Angle of rotation
+	 *	
+	*/
+	void rotate(Vector axis, float angle);
 
 	/*! \fn setNext
 	 *	

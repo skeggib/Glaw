@@ -13,82 +13,24 @@ int test()
 		memset(&input, 0, sizeof(input)); // Set all the events to false
 
     Vector apex1(50, 25), apex2(25, 75), apex3(75, 75);
-    Color   red(255, 0, 0, 255), 
-            green(0, 255, 0, 255), 
-            blue(0, 0, 255, 255), 
-            white(255, 255, 255, 255), 
-            black(0, 0, 0, 255), 
-            cornerColor(30, 30, 30, 255),
-            tColor(120, 120, 120, 255);
+    Color white(255, 255, 255, 255);
 
-	Triangle t1(
-        apex1, 
-	    apex2, 
-	    apex3, 
-	    tColor);
+	/* Triangle */
 
-    Triangle t2(
-        apex1 + (apex2 - apex1) / 2,
-        apex2 + (apex3 - apex2) / 2,
-        apex3 + (apex1 - apex3) / 2,
-        black);
+	Triangle tri(
+		Vector(50, 0),
+		Vector(8, 76),
+		Vector(92, 76),
+		Color(255, 0, 0, 255),
+		Color(0, 255, 0, 255),
+		Color(0, 0, 255, 255)
+	);
 
-    Triangle corner1(
-        Vector(0, 0), 
-        Vector(20, 0), 
-        Vector(0, 20), 
-        cornerColor);
-
-    Triangle corner2(
-        Vector(0, 100), 
-        Vector(20, 100), 
-        Vector(0, 80), 
-        cornerColor);
-
-    Triangle corner3(
-        Vector(100, 0), 
-        Vector(100, 20), 
-        Vector(80, 0), 
-        cornerColor);
-
-    Triangle corner4(
-        Vector(100, 100), 
-        Vector(100, 80), 
-        Vector(80, 100), 
-        Color(255, 0, 0, 255),
-        Color(0, 255, 0, 255),
-        Color(0, 0, 255, 255));
-
-    /* Test Object */
-
-    Object o1(Vector(0, 0), Vector(50, 50));
-
-    o1.add(&t1);
-    o1.add(&t2);
-
-    Object o2(Vector(50, 0), Vector(50, 50));
-
-    o2.add(&t1);
-    o2.add(&t2);
-
-    Object fond;
-
-    fond.create(Triangle(
-        Vector(0, 0),
-        Vector(50, 0),
-        Vector(0, 50),
-        red));
-
-    fond.create(Triangle(
-        Vector(50, 0),
-        Vector(100, 0),
-        Vector(100, 50),
-        red));
+	tri.rotate(Vector(50, 50), 180);
 
 	/* Initialisation */
 
 	SDL_Init(SDL_INIT_VIDEO);
-    cout << "Init SDL" << endl;
 
     // Enabling OpenGL multisampling
     if (MULTISAMPLING)
@@ -101,11 +43,8 @@ int test()
         glEnable(GL_LINE_SMOOTH);
         glEnable(GL_POLYGON_SMOOTH);
     }
-    
-    cout << "Init OpenGL Multisampling" << endl;
 
-    window = SDL_SetVideoMode(800, 600, 32, SDL_OPENGL);
-    cout << "Open window (" << 800 << "x" << 600 << ")" << endl;
+    window = SDL_SetVideoMode(600, 600, 32, SDL_OPENGL);
 
     /* Main loop */
 
@@ -118,12 +57,8 @@ int test()
         glClear(GL_COLOR_BUFFER_BIT);
 		glBegin(GL_TRIANGLES);
 
-            // t1.draw();
-            // t2.draw();
-
-            fond.draw();
-            o1.draw();
-            o2.draw();
+        	tri.draw();
+        	tri.rotate(Vector(50, 50), 0.5);
 
 		glEnd();
         glFlush();
@@ -133,7 +68,6 @@ int test()
     /* Quit */
 
     SDL_Quit();
-    cout << "Quit SDL" << endl;
 
     return 0;
 }
