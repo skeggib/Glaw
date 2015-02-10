@@ -71,8 +71,10 @@ int test()
         glClear(GL_COLOR_BUFFER_BIT);
 		glBegin(GL_TRIANGLES);
 
-            obj.draw();
-            obj.rotate(Vector(50, 0), 0.5);
+            tri.draw();
+
+            tri.resetPos();
+            tri.rotate(Vector(50, 0), 50);
 
 		glEnd();
         glFlush();

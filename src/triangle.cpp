@@ -15,6 +15,9 @@ Triangle::Triangle(Vector apex1, Vector apex2, Vector apex3, Color color)
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
 	m_apex[2] = apex3;
+	m_origApex[0] = apex1;
+	m_origApex[1] = apex2;
+	m_origApex[2] = apex3;
 	m_color[0] = color;
 	m_color[1] = color;
 	m_color[2] = color;
@@ -30,6 +33,9 @@ Triangle::Triangle(Vector apex1, Vector apex2, Vector apex3, Color color1, Color
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
 	m_apex[2] = apex3;
+	m_origApex[0] = apex1;
+	m_origApex[1] = apex2;
+	m_origApex[2] = apex3;
 	m_color[0] = color1;
 	m_color[1] = color2;
 	m_color[2] = color3;
@@ -48,6 +54,9 @@ void Triangle::set(Vector apex1, Vector apex2, Vector apex3, Color color)
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
 	m_apex[2] = apex3;
+	m_origApex[0] = apex1;
+	m_origApex[1] = apex2;
+	m_origApex[2] = apex3;
 	m_color[0] = color;
 	m_color[1] = color;
 	m_color[2] = color;
@@ -58,6 +67,9 @@ void Triangle::set(Vector apex1, Vector apex2, Vector apex3, Color color1, Color
 	m_apex[0] = apex1;
 	m_apex[1] = apex2;
 	m_apex[2] = apex3;
+	m_origApex[0] = apex1;
+	m_origApex[1] = apex2;
+	m_origApex[2] = apex3;
 	m_color[0] = color1;
 	m_color[1] = color2;
 	m_color[2] = color3;
@@ -136,6 +148,14 @@ void Triangle::rotate(Vector axis, float angle)
 			m_apex[i].x = cos((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.x;
 			m_apex[i].y = sin((origAngle[i] + angle) * M_PI / 180) * dist[i] + axis.y;
 		}
+	}
+}
+
+void Triangle::resetPos()
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		m_apex[i] = m_origApex[i];
 	}
 }
 

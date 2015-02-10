@@ -83,6 +83,13 @@ public:
 	*/
 	void rotate(Vector axis, float angle);
 
+	/* \fn resetPos
+	 *	
+	 *	Reset the position of the triangle
+	 *	
+	*/
+	void resetPos();
+
 	/*! \fn setNext
 	 *	
 	 *	Set the pointer of the next triangle
@@ -117,6 +124,7 @@ public:
 
 private:
 	Vector m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
+	Vector m_origApex[3]; // Original positions of the 3 apex of the triangle (it never change)
 	Color m_color[3]; // Colors of each apex
 
     Triangle *m_prev;
