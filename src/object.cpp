@@ -93,6 +93,12 @@ void Object::rem(Triangle *t)
 		{
 			m_first = cur->getNext();
 		}
+
+		if (cur->isDynAlloc())
+		{
+			delete t;
+			cout << "Deleted " << t << endl;
+		}
 	}
 }
 

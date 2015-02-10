@@ -42,6 +42,8 @@ int test()
     obj.add(&tri);
     obj.add(&tri2);
 
+    obj.rem(&tri);
+
 	/* Initialisation */
 
 	SDL_Init(SDL_INIT_VIDEO);
@@ -71,10 +73,7 @@ int test()
         glClear(GL_COLOR_BUFFER_BIT);
 		glBegin(GL_TRIANGLES);
 
-            tri.draw();
-
-            tri.resetPos();
-            tri.rotate(Vector(50, 0), 50);
+            obj.draw();
 
 		glEnd();
         glFlush();
