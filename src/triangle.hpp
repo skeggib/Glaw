@@ -3,7 +3,6 @@
 #include "coord.hpp"
 #include "vector.hpp"
 #include "color.hpp"
-#include "operator-overloading/op_coord.hpp"
 
 #include <GL/gl.h>
 #include <GL/glu.h>
