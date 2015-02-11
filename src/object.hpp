@@ -53,6 +53,13 @@ public:
 	*/
 	void rotate(Vector axis, float angle);
 
+	/* \fn resetPos
+	 *	
+	 *	Reset the position of all triangles in the object
+	 *	
+	*/
+	void resetPos();
+
 private:
 	Vector m_pos;
 	Vector m_size;

@@ -129,3 +129,17 @@ void Object::rotate(Vector axis, float angle)
 		}
 	}
 }
+
+void Object::resetPos()
+{
+	if (m_first != NULL && m_last != NULL)
+	{
+		Triangle *cur = m_first;
+
+		while (cur != NULL)
+		{
+			cur->resetPos();
+			cur = cur->getNext();
+		}
+	}
+}
