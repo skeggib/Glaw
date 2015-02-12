@@ -9,6 +9,13 @@ public:
 	Object(Vector pos, Vector size);
 	~Object();
 
+	/* \fn set
+	 *	
+	 *	Set position and size
+	 *	
+	*/
+	void set(Vector pos, Vector size);
+
 	/*! \fn add
 	 *	
 	 *	Add a triangle to the list
@@ -60,7 +67,25 @@ public:
 	*/
 	void resetPos();
 
+	/* \fn copy
+	 *	
+	 *	Copy an Object into this Object
+	 *	
+	 *	\param obj : Object to copy
+	 *	
+	*/
+	void copy(Object &obj);
+
 private:
+
+/* Getters */
+
+	Vector getPos();
+	Vector getSize();
+	Triangle *getFirst();
+
+/* Variables */
+
 	Vector m_pos;
 	Vector m_size;
 

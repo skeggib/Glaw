@@ -38,6 +38,12 @@ Object::~Object()
 	}
 }
 
+void Object::set(Vector pos, Vector size)
+{
+	m_pos = pos;
+	m_size = size;
+}
+
 void Object::add(Triangle *t)
 {
 	if (m_first == NULL)
@@ -140,4 +146,36 @@ void Object::resetPos()
 			cur = cur->getNext();
 		}
 	}
+}
+
+void Object::copy(Object &obj)
+{
+	this->set(obj.getPos(), obj.getSize());
+	Triangle *first = obj.getFirst();
+
+	if (first != NULL)
+	{
+		Triangle *cur = first;
+
+		while (cur != NULL)
+		{
+			this->create(*cur);
+			cur = cur->getNext();
+		}
+	}
+}
+
+Vector Object::getPos()
+{
+	return m_pos;
+}
+
+Vector Object::getSize()
+{
+	return m_size;
+}
+
+Triangle *Object::getFirst()
+{
+	return m_first;
 }
