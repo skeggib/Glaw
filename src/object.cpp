@@ -32,7 +32,6 @@ Object::~Object()
 		if (last->isDynAlloc())
 		{
 			delete last;
-			cout << "Deleted " << last << endl;
 		}
 
 		cur = cur->getNext();
@@ -97,7 +96,6 @@ void Object::rem(Triangle *t)
 		if (cur->isDynAlloc())
 		{
 			delete t;
-			cout << "Deleted " << t << endl;
 		}
 	}
 }
