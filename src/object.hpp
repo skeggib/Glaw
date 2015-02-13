@@ -76,12 +76,22 @@ public:
 	*/
 	void copy(Object &obj);
 
+	/* \fn Object::getPos
+	 *	
+	 *	Get the position of the Object
+	 *	
+	*/
+	Vector getPos();
+
+	/* \fn Object::getSize
+	 *	
+	 *	Get the size of the Object
+	 *	
+	*/
+	Vector getSize();
+
 private:
 
-/* Getters */
-
-	Vector getPos();
-	Vector getSize();
 	Triangle *getFirst();
 
 /* Variables */
