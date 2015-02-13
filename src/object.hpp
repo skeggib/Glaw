@@ -9,14 +9,14 @@ public:
 	Object(Vector pos, Vector size);
 	~Object();
 
-	/* \fn set
+	/* \fn Object::set
 	 *	
 	 *	Set position and size
 	 *	
 	*/
 	void set(Vector pos, Vector size);
 
-	/*! \fn add
+	/*! \fn Object::add
 	 *	
 	 *	Add a triangle to the list
 	 *	
@@ -25,7 +25,7 @@ public:
 	*/
 	void add(Triangle *t);
 
-	/* \fn create
+	/* \fn Object::create
 	 *	
 	 * Dynamicly allocate a triangle, add it to the list and return its pointer
 	 *	
@@ -34,7 +34,7 @@ public:
 	*/
 	Triangle* create(Triangle t);
 
-	/*! \fn rem
+	/*! \fn Object::rem
 	 *	
 	 *	Remove a triangle from the list
 	 *	
@@ -43,14 +43,14 @@ public:
 	*/
 	void rem(Triangle *t);
 
-	/*! \fn draw
+	/*! \fn Object::draw
 	 *	
 	 *	Draw the object
 	 *	
 	*/
 	void draw();
 
-	/*! \fn rotate
+	/*! \fn Object::rotate
 	 *	
 	 *	Rotate all triangles in the object
 	 *	
@@ -60,14 +60,14 @@ public:
 	*/
 	void rotate(Vector axis, float angle);
 
-	/* \fn resetPos
+	/* \fn Object::resetPos
 	 *	
 	 *	Reset the position of all triangles in the object
 	 *	
 	*/
 	void resetPos();
 
-	/* \fn copy
+	/* \fn Object::copy
 	 *	
 	 *	Copy an Object into this Object
 	 *	

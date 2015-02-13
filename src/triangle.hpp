@@ -19,7 +19,7 @@ public:
 	Triangle(Vector apex1, Vector apex2, Vector apex3, Color color1, Color color2, Color color3);
 	~Triangle();
 
-	/* \fn set
+	/* \fn Triangle::set
 	 *	
 	 *	Set the variables of the triangle
 	 *	
@@ -35,21 +35,21 @@ public:
 	void set(Vector apex1, Vector apex2, Vector apex3, Color color);
 	void set(Vector apex1, Vector apex2, Vector apex3, Color color1, Color color2, Color color3);
 
-	/* \fn dynAlloc
+	/* \fn Triangle::dynAlloc
 	 *	
 	 * Set m_dynAlloc to true
 	 *	
 	*/
 	void dynAlloc();
 
-	/*! \fn dynAlloc
+	/*! \fn Triangle::dynAlloc
 	 *	
 	 *	Returns true if the Triangle was allocated dynamicly.
 	 *	
 	*/
 	bool isDynAlloc();
 
-	/* \fn draw
+	/* \fn Triangle::draw
 	 *	
 	 * Draw the triangle
 	 * 
@@ -60,7 +60,7 @@ public:
 	void draw();
 	void draw(Vector pos, Vector size);
 
-	/* \fn translate
+	/* \fn Triangle::translate
 	 *	
 	 *	Translate the triangle
 	 *	
@@ -72,7 +72,7 @@ public:
 	void translate(Vector a);
 	void translate(double x, double y);
 
-	/* \fn rotate
+	/* \fn Triangle::rotate
 	 *	
 	 *	Rotate the triangle
 	 *	
@@ -82,14 +82,14 @@ public:
 	*/
 	void rotate(Vector axis, float angle);
 
-	/* \fn resetPos
+	/* \fn Triangle::resetPos
 	 *	
 	 *	Reset the position of the triangle
 	 *	
 	*/
 	void resetPos();
 
-	/*! \fn setNext
+	/*! \fn Triangle::setNext
 	 *	
 	 *	Set the pointer of the next triangle
 	 *	
@@ -98,7 +98,7 @@ public:
 	*/
 	void setNext(Triangle *t);
 
-	/*! \fn setPrev
+	/*! \fn Triangle::setPrev
 	 *	
 	 *	Set the pointer of the prev triangle
 	 *	
@@ -107,14 +107,14 @@ public:
 	*/
 	void setPrev(Triangle *t);
 
-	/*! \fn getNext
+	/*! \fn Triangle::getNext
 	 *	
 	 *	Get the pointer of the next triangle
 	 *	
 	*/
 	Triangle* getNext();
 
-	/*! \fn getPrev
+	/*! \fn Triangle::getPrev
 	 *	
 	 *	Get the pointer of the prev triangle
 	 *	
