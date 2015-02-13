@@ -121,6 +121,19 @@ public:
 	*/
 	Triangle* getPrev();
 
+	/* \fn Triangle::changeColor
+	 *	
+	 *	Change the color of the Triangle
+	 *	
+	 *	\param c : Color of all apexes
+	 *	\param c1 : Color of the first apex
+	 *	\param c2 : Color of the second apex
+	 *	\param c3 : Color of the third apex
+	 *	
+	*/
+	void changeColor(Color c);
+	void changeColor(Color c1, Color c2, Color c3);
+
 private:
 	Vector m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
 	Vector m_origApex[3]; // Original positions of the 3 apex of the triangle (it never change)

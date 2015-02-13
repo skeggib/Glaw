@@ -178,3 +178,18 @@ Triangle* Triangle::getPrev()
 {
 	return m_prev;
 }
+
+void Triangle::changeColor(Color c)
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		m_color[i] = c;
+	}
+}
+
+void Triangle::changeColor(Color c1, Color c2, Color c3)
+{
+	m_color[0] = c1;
+	m_color[1] = c2;
+	m_color[2] = c3;
+}
