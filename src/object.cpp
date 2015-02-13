@@ -179,3 +179,17 @@ Triangle *Object::getFirst()
 {
 	return m_first;
 }
+
+void Object::changeColor(Color c)
+{
+	if (m_first != NULL && m_last != NULL)
+	{
+		Triangle *cur = m_first;
+
+		while (cur != NULL)
+		{
+			cur->changeColor(c);
+			cur = cur->getNext();
+		}
+	}
+}

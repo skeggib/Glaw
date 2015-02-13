@@ -90,6 +90,15 @@ public:
 	*/
 	Vector getSize();
 
+	/* \fn Object::changeColor
+	 *	
+	 *	Change the color of the Object
+	 *	
+	 *	\param c : Color
+	 *	
+	*/
+	void changeColor(Color c);
+
 private:
 
 	Triangle *getFirst();
