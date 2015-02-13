@@ -1,4 +1,5 @@
 a0.2.1 :
 
-	Ajout des méthodes Triangle::resetPos() et Object::resetPos().
-	Ajout de la méthode Object::copy().
+	Ajout des méthodes Triangle::resetPos() et Object::resetPos()
+	Ajout de la méthode Object::copy()
+	Ajout des méthodes Triangle::changeColor() et Object::changeColor()
