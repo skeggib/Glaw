@@ -78,5 +78,14 @@ void Container::rem(Object *obj)
 
 void Container::draw()
 {
-	// TODO Create draw method
+	if (m_firstObject != NULL && m_lastObject != NULL)
+	{
+		Object *cur = m_firstObject;
+
+		while (cur != NULL)
+		{
+			cur->draw(m_pos, m_size);
+			cur = cur->getNext();
+		}
+	}
 }

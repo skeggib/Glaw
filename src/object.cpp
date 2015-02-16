@@ -126,6 +126,25 @@ void Object::draw()
 	}
 }
 
+void Object::draw(Vector pos, Vector size)
+{
+	Vector realPos, realSize;
+
+	realPos = pos + m_pos * (size / 100);
+	realSize = (size / 100) * m_size;
+
+	if (m_first != NULL && m_last != NULL)
+	{
+		Triangle *cur = m_first;
+
+		while (cur != NULL)
+		{
+			cur->draw(realPos, realSize);
+			cur = cur->getNext();
+		}
+	}
+}
+
 void Object::rotate(Vector axis, float angle)
 {
 	if (m_first != NULL && m_last != NULL)

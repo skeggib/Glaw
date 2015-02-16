@@ -46,9 +46,13 @@ public:
 	/*! \fn Object::draw
 	 *	
 	 *	Draw the object
+	 * 
+	 * \param pos : position od the drawing
+	 * \param size : size of the drawing
 	 *	
 	*/
 	void draw();
+	void draw(Vector pos, Vector size);
 
 	/*! \fn Object::rotate
 	 *	
