@@ -8,6 +8,9 @@ Object::Object()
 	m_first = NULL;
 	m_last = NULL;
 
+	m_next = NULL;
+	m_prev = NULL;
+
 	m_pos = Vector(0, 0);
 	m_size = Vector(100, 100);
 }
@@ -16,6 +19,9 @@ Object::Object(Vector pos, Vector size)
 {
 	m_first = NULL;
 	m_last = NULL;
+
+	m_next = NULL;
+	m_prev = NULL;
 
 	m_pos = pos;
 	m_size = size;

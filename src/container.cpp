@@ -11,7 +11,8 @@ Container::Container()
 
 Container::Container(Vector pos, Vector size)
 {
-	Container();
+	m_firstObject = NULL;
+	m_lastObject = NULL;
 
 	m_pos = pos;
 	m_size = size;
@@ -19,7 +20,7 @@ Container::Container(Vector pos, Vector size)
 
 Container::~Container()
 {
-	
+
 }
 
 void Container::set(Vector pos, Vector size)
