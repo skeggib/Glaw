@@ -193,3 +193,23 @@ void Object::changeColor(Color c)
 		}
 	}
 }
+
+void Object::setNext(Object *t)
+{
+	m_next = t;
+}
+
+void Object::setPrev(Object *t)
+{
+	m_prev = t;
+}
+
+Object* Object::getNext()
+{
+	return m_next;
+}
+
+Object* Object::getPrev()
+{
+	return m_prev;
+}

@@ -99,6 +99,38 @@ public:
 	*/
 	void changeColor(Color c);
 
+	/*! \fn Object::setNext
+	 *	
+	 *	Set the pointer of the next Object
+	 *	
+	 *	\param obj : next Object
+	 *	
+	*/
+	void setNext(Object *obj);
+
+	/*! \fn Object::setPrev
+	 *	
+	 *	Set the pointer of the prev Object
+	 *	
+	 *	\param obj : prev Object
+	 *	
+	*/
+	void setPrev(Object *obj);
+
+	/*! \fn Object::getNext
+	 *	
+	 *	Get the pointer of the next Object
+	 *	
+	*/
+	Object* getNext();
+
+	/*! \fn Object::getPrev
+	 *	
+	 *	Get the pointer of the prev Object
+	 *	
+	*/
+	Object* getPrev();
+
 private:
 
 	Triangle *getFirst();
@@ -110,4 +142,7 @@ private:
 
 	Triangle *m_first;
 	Triangle *m_last;
+
+    Object *m_prev;
+    Object *m_next;
 };

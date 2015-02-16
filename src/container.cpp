@@ -17,6 +17,11 @@ Container::Container(Vector pos, Vector size)
 	m_size = size;
 }
 
+Container::~Container()
+{
+	
+}
+
 void Container::set(Vector pos, Vector size)
 {
 	m_pos = pos;
