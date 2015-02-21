@@ -1,6 +1,5 @@
 #pragma once
 
-#include "coord.hpp"
 #include "vector.hpp"
 #include "color.hpp"
 
