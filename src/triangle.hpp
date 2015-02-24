@@ -133,6 +133,9 @@ public:
 	void changeColor(Color c);
 	void changeColor(Color c1, Color c2, Color c3);
 
+	// TODO Add Triangle::copy()
+	// TODO Add Triangle::Triangle(Triangle &t)
+
 private:
 	Vector m_apex[3]; // Positions of the 3 apex of the triangle (in percentage of the screen (or surface))
 	Vector m_origApex[3]; // Original positions of the 3 apex of the triangle (it never change)

@@ -55,7 +55,19 @@ void Object::add(Triangle *t)
 	if (m_first == NULL)
 	{
 		m_first = t;
-		m_last = t;
+
+		if (t->getNext() == NULL)
+			m_last = t;
+		else
+		{
+			Triangle *cur = t->getNext();
+			while (cur->getNext() != NULL)
+			{
+				cur = cur->getNext();
+			}
+
+			m_last = cur;
+		}
 	}
 
 	else
