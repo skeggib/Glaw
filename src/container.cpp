@@ -31,10 +31,23 @@ void Container::set(Vector pos, Vector size)
 
 void Container::add(Object *obj)
 {
+	// If the chain list is empty
 	if (m_firstObject == NULL)
 	{
 		m_firstObject = obj;
-		m_lastObject = obj;
+		
+		if (obj->getNext() == NULL)
+			m_lastObject = obj;
+		else
+		{
+			Object *cur = obj->getNext();
+			while (cur->getNext() != NULL)
+			{
+				cur = cur->getNext();
+			}
+
+			m_lastObject = cur;
+		}
 	}
 
 	else

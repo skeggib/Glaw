@@ -3,18 +3,23 @@
 #include "vector.hpp"
 #include "object.hpp"
 
+/*! \class Container
+ *	
+ *	Contains Objects
+ *	
+*/
 class Container
 {
 public:
 
-	/*! \fn Container::Container
+	/*! \fn Container()
 	 *	
 	 *	Contructor of a default Container
 	 *	
 	*/
 	Container();
 
-	/*! \fn Container::Container
+	/*! \fn Container(Vector pos, Vector size)
 	 *	
 	 *	Contructor of a Container
 	 *	
@@ -24,9 +29,14 @@ public:
 	*/
 	Container(Vector pos, Vector size);
 
+	/*! \fn ~Container()
+	 *	
+	 *	Destructor
+	 *	
+	*/
 	~Container();
 
-	/*! \fn Container::set
+	/*! \fn set(Vector pos, Vector size)
 	 *	
 	 *	Set the position and size of the Container
 	 *	
@@ -36,7 +46,7 @@ public:
 	*/
 	void set(Vector pos, Vector size);
 
-	/*! \fn Container::add
+	/*! \fn add(Object *obj)
 	 *	
 	 *	Add an Object to the Container
 	 *	
@@ -45,7 +55,7 @@ public:
 	*/
 	void add(Object *obj);
 
-	/*! \fn Container::rem
+	/*! \fn rem(Object *obj)
 	 *	
 	 *	Remove an Object from the Container
 	 *	
@@ -54,7 +64,7 @@ public:
 	*/
 	void rem(Object *obj);
 
-	/*! \fn Container::draw
+	/*! \fn draw()
 	 *	
 	 *	Draw the container
 	 *	
@@ -62,9 +72,10 @@ public:
 	void draw();
 
 private:
-	Vector m_pos;
-	Vector m_size;
+	Vector m_pos; // Position
+	Vector m_size; // Size
 
+	// Chain list of Objects
 	Object *m_firstObject;
 	Object *m_lastObject;
 };
